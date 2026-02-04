@@ -45,19 +45,19 @@
             width: 100%;
             z-index: 1000;
             box-shadow: var(--shadow);
-            height: 50px;
+            height: 36px;
             align-items: center;
         }
 
         .main-nav-item {
-            padding: 0 20px;
+            padding: 0 8px;
             height: 100%;
             display: flex;
             align-items: center;
             cursor: pointer;
             transition: background 0.3s;
-            font-weight: 600;
-            font-size: 0.95rem;
+            font-weight: 400;
+            font-size: 0.78rem;
         }
 
         .main-nav-item:hover,
@@ -76,7 +76,7 @@
             justify-content: center;
             border-bottom: 1px solid #ddd;
             position: fixed;
-            top: 50px;
+            top: 36px;
             left: 0;
             width: 100%;
             z-index: 999;
@@ -104,7 +104,7 @@
 
         /* --- Content --- */
         .container {
-            margin-top: 100px;
+            margin-top: 81px;
             padding: 15px;
             max-width: 800px;
             margin-left: auto;
@@ -2667,7 +2667,11 @@
             event.target.classList.add('active');
             currentSubject = subject;
             resetSelection();
-            renderChapterSection();
+            
+            // Render content based on current mode
+            if (currentMode === 'chapter') renderChapterSection();
+            else if (currentMode === 'mixed') renderMixedSection();
+            else if (currentMode === 'full') renderFullSyllabusSection();
         }
 
         function selectMode(mode) {
